@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 
 describe("Shopping List", function() {
   // Before our tests run, we activate the server. Our `runServer`
-  // function returns a promise, and we return the that promise by
+  // function returns a promise, and we return that promise by
   // doing `return runServer`. If we didn't return a promise here,
   // there's a possibility of a race condition where our tests start
   // running before our server has started.
@@ -34,8 +34,8 @@ describe("Shopping List", function() {
 
   // test strategy:
   //   1. make request to `/shopping-list`
-  //   2. inspect response object and prove has right code and have
-  //   right keys in response object.
+  //   2. inspect response object and prove it has the right code and
+  //   right keys
   it("should list items on GET", function() {
     // for Mocha tests, when we're dealing with asynchronous operations,
     // we must either return a Promise object or else call a `done` callback
@@ -105,7 +105,7 @@ describe("Shopping List", function() {
     return (
       chai
         .request(app)
-        // first have to get so we have an idea of object to update
+        // first have to get so we have an ID
         .get("/shopping-list")
         .then(function(res) {
           updateData.id = res.body[0].id;
